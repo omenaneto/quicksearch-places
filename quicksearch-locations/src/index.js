@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+
+// MY COMPONENT! =================================
+//import Hello from './myFirstComponent/Hello'; //
+//================================================
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 

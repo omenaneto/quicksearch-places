@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import CardList from './CardList';
+import SearchBox from './SearchBox';
+import { places } from './places';
+import './Style.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+	// Create state and
+	constructor() {
+		super();
+		this.state = {
+			places,
+			searchfield : ''
+		};
+	}
+
+	searchText = (e) => {
+		return this.setState({ searchfield: e.target.value });
+	};
+
+	render() {
+		const searchedPlaces = this.state.places.filter((place) => {
+			return (
+				place.city.toLowerCase().includes(this.state.searchfield.toLowerCase()) ||
+				place.country.toLowerCase().includes(this.state.searchfield.toLowerCase())
+			);
+		});
+
+		return (
+			<div>
+				<SearchBox searchChange={this.searchText} />
+				<CardList places={searchedPlaces} />
+			</div>
+		);
+	}
 }
 
 export default App;
