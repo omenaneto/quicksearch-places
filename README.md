@@ -1,3 +1,3 @@
-#Quick Search in React
+# Quick Search in React
 
 Simple app to search locations.
