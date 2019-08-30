@@ -6,7 +6,7 @@ import './index.css';
 //import Hello from './myFirstComponent/Hello'; //
 //================================================
 
-import App from './App';
+import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
